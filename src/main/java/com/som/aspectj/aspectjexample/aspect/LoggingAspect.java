@@ -38,7 +38,8 @@ public class LoggingAspect {
         System.out.println("Second advice.");
     }
 
-    @Around("allGetters()")
+    //@Around("allGetters()")
+    @Around("@annotation(com.som.aspectj.aspectjexample.aspect.Loggable)")
     public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint/*1st you need to have proceedingjoinpoint as one of the argument*/){
         Object returnValue = null;
         try {

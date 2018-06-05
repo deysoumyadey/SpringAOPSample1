@@ -1,5 +1,6 @@
 package com.som.aspectj.aspectjexample.service;
 
+import com.som.aspectj.aspectjexample.aspect.Loggable;
 import com.som.aspectj.aspectjexample.model.Circle;
 import com.som.aspectj.aspectjexample.model.Triangle;
 
@@ -9,7 +10,7 @@ public class ShapeService {
     private Circle circle;
     private Triangle triangle;
 
-
+    @Loggable
     public Circle getCircle() {
         return circle;
     }
@@ -18,6 +19,7 @@ public class ShapeService {
         this.circle = circle;
     }
 
+    @Loggable
     public Triangle getTriangle() {
         return triangle;
     }
