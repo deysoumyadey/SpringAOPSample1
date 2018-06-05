@@ -2,6 +2,7 @@ package com.som.aspectj.aspectjexample.aspect;
 
 import com.som.aspectj.aspectjexample.model.Circle;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -35,6 +36,21 @@ public class LoggingAspect {
     @Before("allGetters()")
     public void secondAdvice(){
         System.out.println("Second advice.");
+    }
+
+    @Around("allGetters()")
+    public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint/*1st you need to have proceedingjoinpoint as one of the argument*/){
+        Object returnValue = null;
+        try {
+            System.out.println("Before Advice");
+
+            //2nd Around advice rule is to have the below line
+            returnValue = proceedingJoinPoint.proceed();
+        }catch (Throwable e){
+            System.out.println("After Returning");
+        }
+        System.out.println("After Finally");
+        return returnValue;
     }
 
     @Pointcut("execution(* get*())")

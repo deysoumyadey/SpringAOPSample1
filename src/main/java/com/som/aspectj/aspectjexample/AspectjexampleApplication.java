@@ -16,8 +16,9 @@ public class AspectjexampleApplication {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
         ShapeService shapeService = ctx.getBean(ShapeService.class);
-        shapeService.getCircle().setName("different Circle Name");
+        //shapeService.getCircle().setName("different Circle Name");
         //shapeService.getCircle().setNameAndReturn("different Circle Name");
-        //System.out.println(shapeService.getCircle().getName());
+        //System.out.println(shapeService.getTriangle().getName());
+        shapeService.getCircle();
     }
 }
