@@ -14,7 +14,7 @@
     </bean>
 
     <bean name="circle" class="com.som.aspectj.aspectjexample.model.Circle">
-        <property name="name" value="Circle name"/>
+        <!--<property name="name" value="Circle name"/>-->
     </bean>
 
     <bean name="shapeService" class="com.som.aspectj.aspectjexample.service.ShapeService" autowire="byName"/>

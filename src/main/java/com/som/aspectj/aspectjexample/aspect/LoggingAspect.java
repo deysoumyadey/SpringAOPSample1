@@ -2,9 +2,7 @@ package com.som.aspectj.aspectjexample.aspect;
 
 import com.som.aspectj.aspectjexample.model.Circle;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class LoggingAspect {
@@ -12,19 +10,27 @@ public class LoggingAspect {
     //@Before("allGetters() && allCircleMethods()")
     @Before("allCircleMethods()")
     public void LoggingAdvice(JoinPoint joinPoint){
-        Circle circle = (Circle) joinPoint.getTarget();
+        /*Circle circle = (Circle) joinPoint.getTarget();
         System.out.println(
                 circle.getName()
                 //joinPoint.toString()
                 /*"Advice run. Get Method called"*/
-        );
+       /* );*/
     }
 
-    @Before("args(name)")
-    public void stringArgumentMethod(String name){
-        System.out.println("A method that takes String arguments has been called. The value is " + name);
+    //@After("args(name)")
+    @AfterReturning(pointcut = "args(name)", returning = "returnString")
+    public void stringArgumentMethod(String name, String returnString){
+        System.out.println("A method that takes String arguments has been called. The value is: " + name + ". The output value is: " + returnString);
+
     }
 
+    //@AfterThrowing("args(name)")
+    @AfterThrowing(pointcut = "args(name)", throwing = "ex")
+    public void exceptionAdvice(String name, RuntimeException ex){
+        System.out.println("An exception has been thrown " + ex);
+        ex.printStackTrace();
+    }
 
     @Before("allGetters()")
     public void secondAdvice(){

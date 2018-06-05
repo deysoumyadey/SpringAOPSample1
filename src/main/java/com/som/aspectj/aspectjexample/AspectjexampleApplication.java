@@ -17,6 +17,7 @@ public class AspectjexampleApplication {
 
         ShapeService shapeService = ctx.getBean(ShapeService.class);
         shapeService.getCircle().setName("different Circle Name");
-        System.out.println(shapeService.getCircle().getName());
+        //shapeService.getCircle().setNameAndReturn("different Circle Name");
+        //System.out.println(shapeService.getCircle().getName());
     }
 }
