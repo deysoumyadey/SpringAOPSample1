@@ -12,6 +12,7 @@ public class ShapeService {
 
     @Loggable
     public Circle getCircle() {
+        System.out.println("ShapeService Circle Getter called.");
         return circle;
     }
 
