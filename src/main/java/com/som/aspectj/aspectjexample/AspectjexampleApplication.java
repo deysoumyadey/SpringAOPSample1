@@ -20,7 +20,7 @@ public class AspectjexampleApplication {
         //shapeService.getCircle().setNameAndReturn("different Circle Name");
         //System.out.println(shapeService.getTriangle().getName());
         shapeService.getCircle();
-        System.out.println("For Triangle...");
-        shapeService.getTriangle();
+        //System.out.println("For Triangle...");
+        //shapeService.getTriangle();
     }
 }

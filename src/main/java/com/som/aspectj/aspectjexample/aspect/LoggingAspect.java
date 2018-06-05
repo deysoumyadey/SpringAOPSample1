@@ -33,13 +33,13 @@ public class LoggingAspect {
         ex.printStackTrace();
     }
 
-    @Before("allGetters()")
+    //@Before("allGetters()")
     public void secondAdvice(){
         System.out.println("Second advice.");
     }
 
     //@Around("allGetters()")
-    @Around("@annotation(com.som.aspectj.aspectjexample.aspect.Loggable)")
+    //@Around("@annotation(com.som.aspectj.aspectjexample.aspect.Loggable)")
     public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint/*1st you need to have proceedingjoinpoint as one of the argument*/){
         Object returnValue = null;
         try {
@@ -54,7 +54,7 @@ public class LoggingAspect {
         return returnValue;
     }
 
-    @Pointcut("execution(* get*())")
+    //@Pointcut("execution(* get*())")
     public void allGetters(){}
 
     @Pointcut("within(com.som.aspectj.aspectjexample.model.Circle)")
